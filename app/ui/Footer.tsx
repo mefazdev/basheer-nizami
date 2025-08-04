@@ -34,9 +34,9 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({
   contactInfo = {
-    email: 'contact@educationalleader.com',
+    email: 'contact@example.com',
     phone: '+1 (555) 123-4567',
-    address: 'Educational Leadership Center, Boston, MA 02101'
+    address: 'India'
   },
   socialLinks = {
     linkedin: 'https://linkedin.com/in/educational-leader',
@@ -167,41 +167,41 @@ export const Footer: React.FC<FooterProps> = ({
       <div className="relative z-10">
         {/* Main Footer Content */}
         <div className="max-w-7xl mx-auto px-6 pt-20 pb-12">
-          <div className="grid lg:grid-cols-10 gap-12">
+          <div className="grid lg:grid-cols-11 gap-12">
             {/* Brand & Contact Section */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="lg:col-span-4"
+              className="lg:col-span-3"
             >
               {/* Logo/Brand */}
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
+              <div className="  ">
+                {/* <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
                   Educational Leadership
-                </h3>
-                <p className="text-gray-300 leading-relaxed">
+                </h3> */}
+                {/* <p className="text-gray-300 leading-relaxed">
                   Transforming education through innovative leadership, cutting-edge research, and unwavering commitment to student success and educational equity.
-                </p>
+                </p> */}
               </div>
 
               {/* Contact Information */}
               <div className="space-y-4 mb-8">
                 <div className="flex items-center text-gray-300 hover:text-white transition-colors">
-                  <Mail className="w-5 h-5 mr-3 text-blue-400" />
+                  <Mail className="w-5 h-5 mr-3 text-gray-400" />
                   <a href={`mailto:${contactInfo.email}`} className="hover:underline">
                     {contactInfo.email}
                   </a>
                 </div>
                 <div className="flex items-center text-gray-300 hover:text-white transition-colors">
-                  <Phone className="w-5 h-5 mr-3 text-blue-400" />
+                  <Phone className="w-5 h-5 mr-3 text-gray-400" />
                   <a href={`tel:${contactInfo.phone}`} className="hover:underline">
                     {contactInfo.phone}
                   </a>
                 </div>
                 <div className="flex items-start text-gray-300">
-                  <MapPin className="w-5 h-5 mr-3 text-blue-400 mt-1 flex-shrink-0" />
+                  <MapPin className="w-5 h-5 mr-3 text-gray-400 mt-1 flex-shrink-0" />
                   <span>{contactInfo.address}</span>
                 </div>
               </div>
@@ -260,8 +260,8 @@ export const Footer: React.FC<FooterProps> = ({
             </motion.div>
 
             {/* Navigation Links */}
-            <div className="lg:col-span-6">
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="lg:col-span-5">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 ">
                 {navigationLinks.map((section, index) => (
                   <motion.div
                     key={section.title}
@@ -269,6 +269,7 @@ export const Footer: React.FC<FooterProps> = ({
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: index * 0.1 }}
                     viewport={{ once: true }}
+                 
                   >
                     <h4 className="text-lg font-semibold text-white mb-6">
                       {section.title}
@@ -279,9 +280,9 @@ export const Footer: React.FC<FooterProps> = ({
                           <motion.a
                             href={link.href}
                             whileHover={{ x: 5 }}
-                            className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group"
+                            className="text-gray-300 hover:text-white transition-colors duration-200 fle items-center justify-start group  "
                           >
-                            <ChevronRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                            {/* <ChevronRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200" /> */}
                             {link.label}
                           </motion.a>
                         </li>
@@ -298,7 +299,7 @@ export const Footer: React.FC<FooterProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="lg:col-span-4"
+              className="lg:col-span-3"
             >
               {/* Newsletter Signup */}
               {showNewsletter && (
@@ -326,7 +327,7 @@ export const Footer: React.FC<FooterProps> = ({
                       disabled={isSubscribing}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center disabled:opacity-50"
+                      className="w-full bg-gradient-to-r from-red-600 to-gray-800 hover:from-rede-700 hover:to-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center disabled:opacity-50"
                     >
                       {isSubscribing ? (
                         <motion.div
@@ -423,7 +424,7 @@ export const Footer: React.FC<FooterProps> = ({
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 z-50"
+          className="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-red-600 to-gray-600 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 z-50"
         >
           <ArrowUp className="w-5 h-5" />
         </motion.button>
