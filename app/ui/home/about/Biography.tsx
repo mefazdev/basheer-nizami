@@ -18,8 +18,11 @@ export const Biography: React.FC<BiographyProps> = ({ title, content }) => {
       className="space-y-6"
     >
       <h3 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-        {title}
+     Basheer Ahmed Nizami
       </h3>
+       <h4 className="text-3xl md:text-2xl font-bold text-gray-900 leading-tight">
+        {title}
+      </h4>
       
       <div className="space-y-4">
         {content.map((paragraph, index) => (
@@ -48,7 +51,7 @@ export const Biography: React.FC<BiographyProps> = ({ title, content }) => {
         </button> */}
          <Link
                   href="/videos"
-                  className="px-6 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg inline-flex items-center"
+                  className="px-6 py-2 bg-gradient-to-r from-red-600 to-black hover:bg-red-700 text-white font-medium rounded-lg inline-flex items-center"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

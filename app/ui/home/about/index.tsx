@@ -1,11 +1,10 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 // import { Biography } from './about/Biography';
- 
-import { Biography } from './Biography';
-import { Portrait } from './Portrait';
-import { Timeline } from './Timeline';
+
+import { Biography } from "./Biography";
+import { Portrait } from "./Portrait";
  
 
 interface AboutSectionProps {
@@ -21,7 +20,7 @@ interface AboutSectionProps {
     year: string;
     title: string;
     description: string;
-    category: 'education' | 'leadership' | 'award' | 'achievement';
+    category: "education" | "leadership" | "award" | "achievement";
   }[];
   values?: {
     title: string;
@@ -36,73 +35,83 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
     content: [
       "With over two decades of dedicated service in the field of education, our leader has transformed countless lives through innovative teaching methodologies and progressive leadership approaches.",
       "Their journey began as a passionate educator, gradually evolving into a recognized authority on educational reform and institutional development. Through unwavering commitment to excellence, they have established new benchmarks in educational leadership.",
-      "Today, they continue to inspire educators worldwide, fostering environments where both students and teachers can thrive and reach their full potential."
-    ]
+      "Today, they continue to inspire educators worldwide, fostering environments where both students and teachers can thrive and reach their full potential.",
+    ],
   },
   portrait = {
     image: "/images/leader-portrait.jpg",
-    alt: "Educational Leader Portrait"
+    alt: "Educational Leader Portrait",
   },
-  milestones = [
-    {
-      year: "2003",
-      title: "Started Teaching Career",
-      description: "Began as a mathematics teacher at Lincoln High School, introducing innovative problem-solving techniques.",
-      category: "education"
-    },
-    {
-      year: "2008",
-      title: "Curriculum Development Leadership",
-      description: "Led the development of integrated STEM curriculum adopted by 15+ schools in the district.",
-      category: "leadership"
-    },
-    {
-      year: "2012",
-      title: "Principal Appointment",
-      description: "Appointed as Principal of Metropolitan Academy, turning around a struggling institution.",
-      category: "leadership"
-    },
-    {
-      year: "2016",
-      title: "Education Excellence Award",
-      description: "Received the National Education Excellence Award for outstanding contributions to student achievement.",
-      category: "award"
-    },
-    {
-      year: "2019",
-      title: "District Superintendent",
-      description: "Promoted to District Superintendent, overseeing 50+ schools and 25,000+ students.",
-      category: "leadership"
-    },
-    {
-      year: "2022",
-      title: "International Recognition",
-      description: "Featured as one of the 'Top 100 Global Education Leaders' by Education World Magazine.",
-      category: "achievement"
-    }
-  ],
-  values = [
-    {
-      title: "Excellence in Education",
-      description: "Commitment to providing the highest quality education that prepares students for future success.",
-      icon: "🎓"
-    },
-    {
-      title: "Inclusive Leadership",
-      description: "Creating environments where every voice is heard and every individual can contribute meaningfully.",
-      icon: "🤝"
-    },
-    {
-      title: "Innovation & Growth",
-      description: "Embracing new technologies and methodologies to continuously improve educational outcomes.",
-      icon: "🚀"
-    },
-    {
-      title: "Community Impact",
-      description: "Building strong partnerships with families and communities to support holistic student development.",
-      icon: "🏘️"
-    }
-  ]
+  // milestones = [
+  //   {
+  //     year: "2003",
+  //     title: "Started Teaching Career",
+  //     description:
+  //       "Began as a mathematics teacher at Lincoln High School, introducing innovative problem-solving techniques.",
+  //     category: "education",
+  //   },
+  //   {
+  //     year: "2008",
+  //     title: "Curriculum Development Leadership",
+  //     description:
+  //       "Led the development of integrated STEM curriculum adopted by 15+ schools in the district.",
+  //     category: "leadership",
+  //   },
+  //   {
+  //     year: "2012",
+  //     title: "Principal Appointment",
+  //     description:
+  //       "Appointed as Principal of Metropolitan Academy, turning around a struggling institution.",
+  //     category: "leadership",
+  //   },
+  //   {
+  //     year: "2016",
+  //     title: "Education Excellence Award",
+  //     description:
+  //       "Received the National Education Excellence Award for outstanding contributions to student achievement.",
+  //     category: "award",
+  //   },
+  //   {
+  //     year: "2019",
+  //     title: "District Superintendent",
+  //     description:
+  //       "Promoted to District Superintendent, overseeing 50+ schools and 25,000+ students.",
+  //     category: "leadership",
+  //   },
+  //   {
+  //     year: "2022",
+  //     title: "International Recognition",
+  //     description:
+  //       "Featured as one of the 'Top 100 Global Education Leaders' by Education World Magazine.",
+  //     category: "achievement",
+  //   },
+  // ],
+  // values = [
+  //   {
+  //     title: "Excellence in Education",
+  //     description:
+  //       "Commitment to providing the highest quality education that prepares students for future success.",
+  //     icon: "🎓",
+  //   },
+  //   {
+  //     title: "Inclusive Leadership",
+  //     description:
+  //       "Creating environments where every voice is heard and every individual can contribute meaningfully.",
+  //     icon: "🤝",
+  //   },
+  //   {
+  //     title: "Innovation & Growth",
+  //     description:
+  //       "Embracing new technologies and methodologies to continuously improve educational outcomes.",
+  //     icon: "🚀",
+  //   },
+  //   {
+  //     title: "Community Impact",
+  //     description:
+  //       "Building strong partnerships with families and communities to support holistic student development.",
+  //     icon: "🏘️",
+  //   },
+  // ],
 }) => {
   return (
     <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
@@ -116,9 +125,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            About 
+            About
           </h2>
-          <div className="w-24 h-1 bg-red-600 mx-auto rounded-full" />
+          <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-black mx-auto rounded-full" />
         </motion.div>
 
         {/* Biography and Portrait */}
@@ -128,7 +137,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
         </div>
 
         {/* Timeline */}
-        <Timeline milestones={milestones} />
+        {/* <Timeline milestones={milestones} /> */}
 
         {/* Core Values */}
         {/* <CoreValues values={values} /> */}
@@ -137,13 +146,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
   );
 };
 
-
-
-
-
 // import React, { useState } from 'react'
 // import Link from "next/link";
- 
 
 // import { motion } from "framer-motion";
 // import ReactPlayer from "react-player";
@@ -162,7 +166,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
 
 //           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
 //             <div className="relative aspect-video   rounded-xl overflow-hidden shadow-2xl">
-              
+
 //               <div className="w-full max- mx-auto px-">
 //                 <motion.div
 //                   initial={{ opacity: 0, scale: 0.9 }}

@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 interface Value {
   title: string;
@@ -26,7 +26,8 @@ export const CoreValues: React.FC<CoreValuesProps> = ({ values }) => {
           Core Values & Principles
         </h3>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          The fundamental beliefs that guide our approach to education and leadership
+          The fundamental beliefs that guide our approach to education and
+          leadership
         </p>
       </motion.div>
 
@@ -46,17 +47,17 @@ export const CoreValues: React.FC<CoreValuesProps> = ({ values }) => {
               <div className="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">
                 {/* {value.icon} */}
               </div>
-              
+
               {/* Title */}
               <h4 className="text-xl font-bold text-gray-900 mb-4">
                 {/* {value.title} */}
               </h4>
-              
+
               {/* Description */}
               <p className="text-gray-600 leading-relaxed">
                 {value.description}
               </p>
-              
+
               {/* Decorative line */}
               <div className="w-12 h-1 bg-blue-600 mx-auto mt-6 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>

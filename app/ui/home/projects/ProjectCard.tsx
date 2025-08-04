@@ -1,9 +1,9 @@
 // components/projects/ProjectCard.tsx
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { useState } from 'react';
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { useState } from "react";
 
 interface Project {
   id: string;
@@ -12,7 +12,7 @@ interface Project {
   description: string;
   image: string;
   year: string;
-  status: 'completed' | 'ongoing' | 'upcoming';
+  status: "completed" | "ongoing" | "upcoming";
   impact: {
     metric: string;
     value: string;
@@ -27,15 +27,15 @@ interface ProjectCardProps {
 }
 
 const statusStyles = {
-  completed: 'bg-green-100 text-green-800 border-green-200',
-  ongoing: 'bg-blue-100 text-blue-800 border-blue-200',
-  upcoming: 'bg-purple-100 text-purple-800 border-purple-200'
+  completed: "bg-green-100 text-green-800 border-green-200",
+  ongoing: "bg-blue-100 text-blue-800 border-blue-200",
+  upcoming: "bg-purple-100 text-purple-800 border-purple-200",
 };
 
 const statusIcons = {
-  completed: '✅',
-  ongoing: '🔄',
-  upcoming: '🚀'
+  completed: "✅",
+  ongoing: "🔄",
+  upcoming: "🚀",
 };
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
@@ -45,69 +45,79 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: index * 0.1 }}
+      transition={{ duration: 0.8, delay: 0.1 }}
       viewport={{ once: true }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      whileHover={{ y: -10, scale: 1.02 }}
+      whileHover={{ scale: 1.01 }}
       className="group cursor-pointer"
+      style={{ willChange: "transform" }}
     >
-      <div className="relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100">
+      {/* <div className="relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100"> */}
+      <div className="relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-shadow duration-500 overflow-hidden border border-gray-100">
         {/* Project Image */}
-     <div className="relative h-64 overflow-hidden">
+        <div className="relative h-64 overflow-hidden">
           <Image
             src={project.image}
             alt={project.title}
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-110"
+            // className="object-cover transition-transform duration-700 group-hover:scale-110"
+
+            className="object-cover transition-transform duration-700 group-hover:scale-105 will-change-transform"
           />
-          
-       
+
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-          
- 
+
           <div className="absolute top-4 left-4">
-            <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border ${statusStyles[project.status]}`}>
-              {statusIcons[project.status]} {project.status.charAt(0).toUpperCase() + project.status.slice(1)}
+            <span
+              className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border ${
+                statusStyles[project.status]
+              }`}
+            >
+              {statusIcons[project.status]}{" "}
+              {project.status.charAt(0).toUpperCase() + project.status.slice(1)}
             </span>
           </div>
-          
- 
+
           <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-md rounded-full px-3 py-1">
-            <span className="text-white text-sm font-semibold">{project.year}</span>
+            <span className="text-white text-sm font-semibold">
+              {project.year}
+            </span>
           </div>
-          
- 
+
           <div className="absolute bottom-4 left-4 right-4">
             <div className="flex space-x-2">
               {project.impact.slice(0, 2).map((metric, idx) => (
-                <div key={idx} className="bg-white/20 backdrop-blur-md rounded-lg px-3 py-1 flex-1">
-                  <div className="text-white text-xs font-medium">{metric.metric}</div>
-                  <div className="text-white text-sm font-bold">{metric.value}</div>
+                <div
+                  key={idx}
+                  className="bg-white/20 backdrop-blur-md rounded-lg px-3 py-1 flex-1"
+                >
+                  <div className="text-white text-xs font-medium">
+                    {metric.metric}
+                  </div>
+                  <div className="text-white text-sm font-bold">
+                    {metric.value}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
-        </div>  
+        </div>
 
         {/* Project Content */}
         <div className="p-8">
-          
-          <div className="text-red-600 text-sm font-semibold uppercase tracking-wider mb-2">
+          <div className="text-gray-600 text-sm font-semibold uppercase tracking-wider mb-2">
             {project.category}
           </div>
-          
-          
+
           <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-gray-800 transition-colors">
             {project.title}
           </h3>
-          
- 
+
           <p className="text-gray-600 leading-relaxed mb-6">
             {project.description}
           </p>
 
- 
           {/* {project.technologies && (
             <div className="mb-6">
               <div className="flex flex-wrap gap-2">
@@ -123,7 +133,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             </div>
           )} */}
 
- 
           {/* <div className="mb-6">
             <h4 className="text-sm font-semibold text-gray-900 mb-3">Key Outcomes:</h4>
             <ul className="space-y-1">

@@ -1,8 +1,8 @@
 // components/vision-mission/VisionStatement.tsx
-'use client';
+"use client";
 
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 interface VisionStatementProps {
   title: string;
@@ -13,12 +13,12 @@ interface VisionStatementProps {
 export const VisionStatement: React.FC<VisionStatementProps> = ({
   title,
   subtitle,
-  statement
+  statement,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"],
   });
 
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 1.2]);
@@ -39,9 +39,7 @@ export const VisionStatement: React.FC<VisionStatementProps> = ({
             {title}
           </h3>
           {subtitle && (
-            <p className="text-slate-400 text-lg font-medium">
-              {subtitle}
-            </p>
+            <p className="text-slate-400 text-lg font-medium">{subtitle}</p>
           )}
         </motion.div>
 
@@ -61,11 +59,15 @@ export const VisionStatement: React.FC<VisionStatementProps> = ({
             <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl p-12 md:p-16 border border-white/20 shadow-2xl overflow-hidden">
               {/* Animated Background */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-              
+
               {/* Decorative Elements */}
-              <div className="absolute top-8 left-8 text-6xl text-blue-400/30 font-serif select-none">&quot;</div>
-              <div className="absolute bottom-8 right-8 text-6xl text-purple-400/30 font-serif select-none transform rotate-180">&quot;</div>
-              
+              <div className="absolute top-8 left-8 text-6xl text-blue-400/30 font-serif select-none">
+                &quot;
+              </div>
+              <div className="absolute bottom-8 right-8 text-6xl text-purple-400/30 font-serif select-none transform rotate-180">
+                &quot;
+              </div>
+
               {/* Statement Text */}
               <motion.p
                 initial={{ opacity: 0 }}
@@ -76,7 +78,7 @@ export const VisionStatement: React.FC<VisionStatementProps> = ({
               >
                 {statement}
               </motion.p>
-              
+
               {/* Signature Line */}
               <motion.div
                 initial={{ scaleX: 0 }}
@@ -88,18 +90,18 @@ export const VisionStatement: React.FC<VisionStatementProps> = ({
                 <div className="w-32 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full" />
               </motion.div>
             </div>
-            
+
             {/* Floating Decorative Elements */}
             <motion.div
               animate={{
                 y: [-10, 10, -10],
                 rotate: [0, 5, 0],
-                scale: [1, 1.1, 1]
+                scale: [1, 1.1, 1],
               }}
               transition={{
                 duration: 6,
                 repeat: Infinity,
-                ease: "easeInOut"
+                ease: "easeInOut",
               }}
               className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-xl"
             />
@@ -107,13 +109,13 @@ export const VisionStatement: React.FC<VisionStatementProps> = ({
               animate={{
                 y: [10, -10, 10],
                 rotate: [0, -5, 0],
-                scale: [1.1, 1, 1.1]
+                scale: [1.1, 1, 1.1],
               }}
               transition={{
                 duration: 8,
                 repeat: Infinity,
                 ease: "easeInOut",
-                delay: 2
+                delay: 2,
               }}
               className="absolute -bottom-6 -left-6 w-20 h-20 bg-gradient-to-r from-purple-400/20 to-indigo-400/20 rounded-full blur-lg"
             />

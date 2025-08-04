@@ -1,4 +1,4 @@
-// components/NewsTicker.tsx
+// components/news/NewsTicker.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -8,25 +8,31 @@ interface NewsTickerProps {
 }
 
 export const NewsTicker: React.FC<NewsTickerProps> = ({ items }) => {
-  const duplicatedItems = [...items, ...items]; // Duplicate for seamless loop
+  const duplicatedItems = [...items, ...items];
 
   return (
-    <div className="relative bg-gradient-to-l from-red-600 to-black text-white py-2 overflow-hidden">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="relative bg-gradient-to-r from-red-600 to-black text-white py-4 rounded-2xl overflow-hidden mb-16 shadow-xl"
+    >
       <div className="flex items-center">
         {/* Breaking News Label */}
-        <div className="bg-red-700 px-4 py-1 text-sm font-bold uppercase tracking-wider flex-shrink-0">
-          Updates
+        <div className="bg-white/20 backdrop-blur-sm px-6 py-2 text-sm font-bold uppercase tracking-wider flex-shrink-0 rounded-r-xl">
+          Latest Updates
         </div>
 
         {/* Scrolling Content */}
-        <div className="flex-1 overflow-hidden">
+        <div className="flex-1 overflow-hidden ml-4">
           <motion.div
             className="flex whitespace-nowrap"
             animate={{
               x: "-100%",
             }}
             transition={{
-              duration: 60,
+              duration: 80,
               repeat: Infinity,
               ease: "linear",
             }}
@@ -38,13 +44,16 @@ export const NewsTicker: React.FC<NewsTickerProps> = ({ items }) => {
               >
                 {item}
                 {index < duplicatedItems.length - 1 && (
-                  <span className="mx-4 text-red-300">•</span>
+                  <span className="mx-6 text-white/60">•</span>
                 )}
               </span>
             ))}
           </motion.div>
         </div>
       </div>
-    </div>
+
+      {/* Gradient Fade */}
+      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-red-600 to-transparent pointer-events-none" />
+    </motion.div>
   );
 };

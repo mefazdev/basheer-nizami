@@ -1,8 +1,8 @@
 // components/vision-mission/MissionGoals.tsx
-'use client';
+"use client";
 
-import { motion,Variants } from 'framer-motion';
-import { useState } from 'react';
+import { motion, Variants } from "framer-motion";
+import { useState } from "react";
 
 interface MissionGoal {
   icon: string;
@@ -20,7 +20,7 @@ interface MissionGoalsProps {
 export const MissionGoals: React.FC<MissionGoalsProps> = ({
   title,
   subtitle,
-  goals
+  goals,
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -30,17 +30,17 @@ export const MissionGoals: React.FC<MissionGoalsProps> = ({
       opacity: 1,
       transition: {
         staggerChildren: 0.15,
-        delayChildren: 0.3
-      }
-    }
+        delayChildren: 0.3,
+      },
+    },
   };
 
-  const itemVariants: Variants=  {
-    hidden: { 
-      opacity: 0, 
+  const itemVariants: Variants = {
+    hidden: {
+      opacity: 0,
       y: 50,
       scale: 0.9,
-      rotateX: 45
+      rotateX: 45,
     },
     visible: {
       opacity: 1,
@@ -49,9 +49,9 @@ export const MissionGoals: React.FC<MissionGoalsProps> = ({
       rotateX: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   return (
@@ -86,10 +86,10 @@ export const MissionGoals: React.FC<MissionGoalsProps> = ({
             variants={itemVariants}
             onHoverStart={() => setHoveredIndex(index)}
             onHoverEnd={() => setHoveredIndex(null)}
-            whileHover={{ 
+            whileHover={{
               scale: 1.05,
               rotateY: 5,
-              z: 50
+              z: 50,
             }}
             className="group perspective-1000"
           >
@@ -97,19 +97,19 @@ export const MissionGoals: React.FC<MissionGoalsProps> = ({
               {/* Animated Background */}
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
-                animate={{ 
+                animate={{
                   opacity: hoveredIndex === index ? 0.1 : 0,
-                  scale: hoveredIndex === index ? 1 : 0
+                  scale: hoveredIndex === index ? 1 : 0,
                 }}
                 transition={{ duration: 0.5 }}
                 className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-400 rounded-2xl"
               />
-              
+
               {/* Goal Icon */}
               <motion.div
-                whileHover={{ 
+                whileHover={{
                   rotate: [0, -10, 10, 0],
-                  scale: [1, 1.2, 1]
+                  scale: [1, 1.2, 1],
                 }}
                 transition={{ duration: 0.6 }}
                 className="relative z-10 text-6xl mb-6 inline-block"
@@ -154,8 +154,8 @@ export const MissionGoals: React.FC<MissionGoalsProps> = ({
               {/* Interactive Glow Effect */}
               <motion.div
                 initial={{ opacity: 0 }}
-                animate={{ 
-                  opacity: hoveredIndex === index ? 0.3 : 0
+                animate={{
+                  opacity: hoveredIndex === index ? 0.3 : 0,
                 }}
                 transition={{ duration: 0.3 }}
                 className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-2xl blur-xl -z-10"
@@ -174,9 +174,9 @@ export const MissionGoals: React.FC<MissionGoalsProps> = ({
         className="text-center mt-20"
       >
         <motion.button
-          whileHover={{ 
+          whileHover={{
             scale: 1.05,
-            boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)"
+            boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)",
           }}
           whileTap={{ scale: 0.95 }}
           className="group relative inline-flex items-center px-12 py-4 bg-gradient-to-r from-red-600 to-red-800 text-white font-bold rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-xl overflow-hidden"
@@ -190,10 +190,14 @@ export const MissionGoals: React.FC<MissionGoalsProps> = ({
             whileHover={{ x: 5 }}
             transition={{ duration: 0.2 }}
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M13 7l5 5m0 0l-5 5m5-5H6"
+            />
           </motion.svg>
-          
-          {/* Animated Background */}
+
           <motion.div
             initial={{ x: "-100%" }}
             whileHover={{ x: "100%" }}

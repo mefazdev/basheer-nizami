@@ -1,16 +1,14 @@
-'use client';
-
-import { motion } from 'framer-motion';
- 
-import { useState } from 'react';
-import ReactPlayer from 'react-player';
+"use client";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import ReactPlayer from "react-player";
 interface PortraitProps {
   image: string;
   alt: string;
 }
 
-export const Portrait: React.FC<PortraitProps> = ( ) => {
-    const [isPlaying, setIsPlaying] = useState(false);
+export const Portrait: React.FC<PortraitProps> = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
   return (
     <motion.div
       initial={{ opacity: 0, x: 50 }}
@@ -23,7 +21,7 @@ export const Portrait: React.FC<PortraitProps> = ( ) => {
         {/* Decorative background shapes */}
         <div className="absolute -top-8 -left-8 w-32 h-32 bg-blue-100 rounded-full opacity-50" />
         <div className="absolute -bottom-8 -right-8 w-24 h-24 bg-blue-200 rounded-full opacity-60" />
-        
+
         {/* Main portrait */}
         <motion.div
           whileHover={{ scale: 1.02 }}
@@ -39,7 +37,6 @@ export const Portrait: React.FC<PortraitProps> = ( ) => {
               sizes="(max-width: 768px) 100vw, 50vw"
             /> */}
             <div className="relative aspect-video   rounded-xl overflow-hidden shadow-2xl">
-              
               <div className="w-full max- mx-auto px-">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -50,7 +47,7 @@ export const Portrait: React.FC<PortraitProps> = ( ) => {
                 >
                   <ReactPlayer
                     // src={"/videos/nizami.mp4"}
-                    src='https://res.cloudinary.com/dc52qrj3q/video/upload/v1754055772/nizami_lx6anz.mp4'
+                    src="https://res.cloudinary.com/dc52qrj3q/video/upload/v1754055772/nizami_lx6anz.mp4"
                     width="100%"
                     height="100%"
                     light={"/images/3.jpeg"}
@@ -87,25 +84,28 @@ export const Portrait: React.FC<PortraitProps> = ( ) => {
                 </motion.div>
               </div>
             </div>
-            
+
             {/* Subtle overlay */}
             {/* <div className="absolute inset-0 z-[50] bg-gradient-to-t from-black/10 via-transparent to-transparent" /> */}
           </div>
         </motion.div>
-        
+
         {/* Quote bubble */}
-      {!isPlaying &&   <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="absolute -right-4 top-1/2 transform -translate-y-1/2 bg-white p-4 rounded-2xl shadow-lg max-w-48 hidden lg:block"
-        >
-          <p className="text-sm text-gray-700 italic">
-           &quot;Education is not preparation for life; education is life itself.&quot;
-          </p>
-          <div className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-white rotate-45" />
-        </motion.div>}
+        {!isPlaying && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="absolute -right-4 top-1/2 transform -translate-y-1/2 bg-white p-4 rounded-2xl shadow-lg max-w-48 hidden lg:block"
+          >
+            <p className="text-sm text-gray-700 italic">
+              &quot;Education is not preparation for life; education is life
+              itself.&quot;
+            </p>
+            <div className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-white rotate-45" />
+          </motion.div>
+        )}
       </div>
     </motion.div>
   );

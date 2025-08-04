@@ -6,15 +6,14 @@ import { useEffect, useState } from "react";
 
 import { clsx } from "clsx";
 import { Menu } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 // import MobNav from "./MobNav";
 
 export default function Navbar() {
   const [collapse, setCollapse] = useState(false);
 
-  const router = useRouter();
   const pathname = usePathname();
-  const [changeNav, setChangeNav] = useState(false);
+  const [, setChangeNav] = useState(false);
 
   const [navScroll, setNavScroll] = useState(false);
 
@@ -49,7 +48,7 @@ export default function Navbar() {
     <div>
       <div
         className={clsx(
-          "hidden lg:grid fixed px-4 lg:px-0 left-0 w-full m-auto z-50 transition ease-linear duration-200",
+          "hidden lg:grid  fixed px-4 lg:px-0 left-0 w-full m-auto z-50 transition ease-linear duration-200",
           {
             "top-0    ": navScroll,
             "top-5": !navScroll,
@@ -58,7 +57,7 @@ export default function Navbar() {
       >
         <div
           className={clsx(
-            "transition  ease-linear duration-200 flex justify-between",
+            "transition  ease-linear duration-200 flex justify-between   rounded-xl",
             {
               "bg-black/60 backdrop-blur-lg px-14 bg-opacity-95  py-1":
                 navScroll,

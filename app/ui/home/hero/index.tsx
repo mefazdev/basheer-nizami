@@ -1,23 +1,18 @@
-
 // components/HeroCarousel.tsx
-'use client';
+"use client";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectFade, Navigation,  } from 'swiper/modules';
- 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade, Navigation } from "swiper/modules";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { QuoteSlide } from './slides/QuoteSlide';
-import { NewsSlide } from './slides/NewsSlider';
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { QuoteSlide } from "./slides/QuoteSlide";
+import { NewsSlide } from "./slides/NewsSlider";
 // import { QuoteSlide } from './slides/QuoteSlide';
 // import { NewsSlide } from './slides/NewsSlider';
- 
- 
- 
 
 interface HeroCarouselProps {
   quote?: {
@@ -36,7 +31,7 @@ interface HeroCarouselProps {
     image: string;
     date: string;
   };
-   news2?: {
+  news2?: {
     title: string;
     summary: string;
     image: string;
@@ -45,11 +40,11 @@ interface HeroCarouselProps {
   newsTickerItems?: string[];
 }
 
-export const Hero : React.FC<HeroCarouselProps> = ({
+export const Hero: React.FC<HeroCarouselProps> = ({
   quote = {
     text: "Where curiosity meets guidance, education becomes transformation.",
     author: "Basheer Ahmed Nizami",
-    image: "/images/7.jpeg"
+    image: "/images/7.jpeg",
   },
   // video = {
   //   url: "/videos/1.mp4",
@@ -59,22 +54,24 @@ export const Hero : React.FC<HeroCarouselProps> = ({
 
   news = {
     title: "Groundbreaking Educational Initiative Launched",
-    summary: "A new program aimed at transforming educational outcomes has been successfully implemented across multiple institutions.",
+    summary:
+      "A new program aimed at transforming educational outcomes has been successfully implemented across multiple institutions.",
     image: "/images/9.jpeg",
-    date: "2024-12-15"
+    date: "2024-12-15",
   },
   news2 = {
     title: "Global Education Alliance",
-    summary: "A new program aimed at transforming educational outcomes has been successfully implemented across multiple institutions.",
+    summary:
+      "A new program aimed at transforming educational outcomes has been successfully implemented across multiple institutions.",
     image: "/images/8.jpeg",
-    date: "2024-12-15"
+    date: "2024-12-15",
   },
   newsTickerItems = [
     "Breaking: New educational funding approved for 2024",
     "Research shows 40% improvement in student outcomes",
     "International conference on education leadership announced",
-    "Innovation in digital learning platforms continues to grow"
-  ]
+    "Innovation in digital learning platforms continues to grow",
+  ],
 }) => {
   return (
     <div className="relative w-full h-screen overflow-hidden">
@@ -96,14 +93,14 @@ export const Hero : React.FC<HeroCarouselProps> = ({
         className="h-full w-full"
       >
         <SwiperSlide>
-          <QuoteSlide 
+          <QuoteSlide
             quote={quote.text}
             author={quote.author}
             backgroundImage={quote.image}
-             tickerItems={newsTickerItems}
+            tickerItems={newsTickerItems}
           />
         </SwiperSlide>
-        
+
         {/* <SwiperSlide>
           <VideoSlide 
             videoUrl={video.url}
@@ -111,9 +108,9 @@ export const Hero : React.FC<HeroCarouselProps> = ({
             title={video.title}
           />
         </SwiperSlide> */}
-        
+
         <SwiperSlide>
-          <NewsSlide 
+          <NewsSlide
             title={news.title}
             summary={news.summary}
             image={news.image}
@@ -121,8 +118,8 @@ export const Hero : React.FC<HeroCarouselProps> = ({
             tickerItems={newsTickerItems}
           />
         </SwiperSlide>
-         <SwiperSlide>
-          <NewsSlide 
+        <SwiperSlide>
+          <NewsSlide
             title={news2.title}
             summary={news2.summary}
             image={news2.image}
@@ -134,12 +131,6 @@ export const Hero : React.FC<HeroCarouselProps> = ({
     </div>
   );
 };
-
-
-
-
-
-
 
 // 'use client';
 
@@ -167,7 +158,7 @@ export const Hero : React.FC<HeroCarouselProps> = ({
 //         autoplay={{ delay: 5000 }}
 //         pagination={{ clickable: true }}
 //         // navigation
-    
+
 //         loop
 //         className="w-full h-full"
 //       >
@@ -205,7 +196,7 @@ export const Hero : React.FC<HeroCarouselProps> = ({
 //                 controls
 //                 width="100%"
 //                 height="100%"
-                
+
 //                 light="/1.jpg"
 //                 autoPlay
 //                 loop
